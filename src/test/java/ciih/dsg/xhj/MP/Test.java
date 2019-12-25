@@ -19,14 +19,13 @@ public class Test {
 
     @org.junit.jupiter.api.Test
     public void insert(){
-        AdminInfo adminInfo = new AdminInfo();
-        adminInfo.setAdminCode("xhj");
-        adminInfo.setAdminPass("111111");
-        adminInfo.setAdminName("许浩迥");
-        adminInfoMapper.insert(adminInfo);
-        adminInfoMapper.selectPage(new Page<>(),new QueryWrapper<>());
+//        AdminInfo adminInfo = new AdminInfo();
+//        adminInfo.setAdminCode("xhj");
+//        adminInfo.setAdminPass("111111");
+//        adminInfo.setAdminName("许浩迥");
+//        adminInfoMapper.insert(adminInfo);
 
-//        int rows = adminInfoMapper.deleteAll();
-//        System.out.println(rows);
+        int rows = adminInfoMapper.deleteAll();
+        System.out.println(rows);
     }
 }
