@@ -34,7 +34,6 @@ public class DataSourceConfig {
     config.addDataSourceProperty("cachePrepStmts", true);
     config.addDataSourceProperty("prepStmtCacheSize", 500);
     config.addDataSourceProperty("prepStmtCacheSqlLimit", 2048);
-    config.setConnectionTestQuery("SELECT 1");
     config.setAutoCommit(true);
     //池中最小空闲链接数量
     config.setMinimumIdle(10);
