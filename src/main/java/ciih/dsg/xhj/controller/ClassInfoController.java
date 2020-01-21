@@ -1,10 +1,13 @@
 package ciih.dsg.xhj.controller;
 
 
+import ciih.dsg.xhj.entity.AdminInfo;
 import ciih.dsg.xhj.entity.ClassInfo;
 import ciih.dsg.xhj.service.IClassInfoService;
 import ciih.dsg.xhj.util.ServiceResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiResponse;
@@ -39,21 +42,24 @@ public class ClassInfoController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType="query", name = "className", value = "班级名称",dataType="string")
     })
-    @ApiResponses({
-            @ApiResponse(code = 200, message = "Success",response = ClassInfo.class),
-            @ApiResponse(code = 500, message = "服务器内部错误",response = ServiceResult.class)
-    })
-    public ServiceResult create(HttpServletRequest request, String className){
+//    @ApiResponses({
+//            @ApiResponse(code = 200, message = "Success",response = ClassInfo.class),
+//            @ApiResponse(code = 500, message = "服务器内部错误",response = ServiceResult.class)
+//    })
+    public ServiceResult<IPage<ClassInfo>> create(HttpServletRequest request, String className){
         ClassInfo classInfo = new ClassInfo();
         classInfo.setClassName(className);
         classInfo.setCreateTime(LocalDateTime.now());
         iClassInfoService.save(classInfo);
-        classInfo.insert();
-        return ServiceResult.success("",request);
+
+        IPage<ClassInfo> iPage = new Page<>(1,20);
+        IPage<ClassInfo> page = iClassInfoService.page(iPage);
+        //classInfo.insert();
+        return ServiceResult.success(page,request);
     }
 
     @PostMapping("/get")
-    public String get(HttpServletResponse response , String className){
+    public ServiceResult<List<ClassInfo>> get(HttpServletRequest request , String className){
         List<ClassInfo> classInfoList = iClassInfoService.list();
         classInfoList.forEach(System.out::println);
 
@@ -61,6 +67,7 @@ public class ClassInfoController {
         wrapper.lambda().like(ClassInfo::getClassName,className);
         List<ClassInfo> classInfoList1 = iClassInfoService.list(wrapper);
         classInfoList1.forEach(System.out::println);
-        return "成功";
+
+        return ServiceResult.success(classInfoList,request);
     }
 }
