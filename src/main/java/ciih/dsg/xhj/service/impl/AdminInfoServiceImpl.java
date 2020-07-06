@@ -17,11 +17,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AdminInfoServiceImpl extends ServiceImpl<AdminInfoMapper, AdminInfo> implements IAdminInfoService {
-    @Autowired
-    private AdminInfoMapper dao;
 
-    @Override
-    public int deleteAll() {
-        return dao.deleteAll();
-    }
 }

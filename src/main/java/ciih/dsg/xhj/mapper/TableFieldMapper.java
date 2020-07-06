@@ -1,6 +1,6 @@
 package ciih.dsg.xhj.mapper;
 
-import ciih.dsg.xhj.entity.ClassInfo;
+import ciih.dsg.xhj.entity.TableField;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author xhj
- * @since 2019-12-13
+ * @since 2020-05-15
  */
-public interface ClassInfoMapper extends BaseMapper<ClassInfo> {
+public interface TableFieldMapper extends BaseMapper<TableField> {
 
 }

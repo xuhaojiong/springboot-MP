@@ -1,6 +1,6 @@
 package ciih.dsg.xhj.mapper;
 
-import ciih.dsg.xhj.entity.AdminInfo;
+import ciih.dsg.xhj.entity.Student;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -10,7 +10,9 @@ import org.apache.ibatis.annotations.Mapper;
  * </p>
  *
  * @author xhj
- * @since 2019-12-16
+ * @since 2020-03-10
  */
-public interface AdminInfoMapper extends BaseMapper<AdminInfo> {
+
+public interface StudentMapper extends BaseMapper<Student> {
+
 }

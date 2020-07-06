@@ -1,6 +1,6 @@
 package ciih.dsg.xhj.service;
 
-import ciih.dsg.xhj.entity.AdminInfo;
+import ciih.dsg.xhj.entity.TableData;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author xhj
- * @since 2019-12-16
+ * @since 2020-05-15
  */
-public interface IAdminInfoService extends IService<AdminInfo> {
+public interface ITableDataService extends IService<TableData> {
 
 }
